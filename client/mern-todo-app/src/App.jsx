@@ -1,20 +1,16 @@
-import { useContext } from "react";
-import { TodoContext } from "./TodoContext/TodoContext.jsx";
-import TodoForm from "./components/TodoForm";
-import TodoItem from "./components/TodoItem";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import TodoDetails from "./pages/ToDoDetails";
 
 function App() {
-  const { listItems } = useContext(TodoContext);
-
   return (
     <div>
-      <h1>Todo List</h1>
-      <TodoForm />
-      <div>
-        {listItems.map((item) => (
-          <TodoItem key={item._id} item={item} />
-        ))}
-      </div>
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/details/:id" element={<TodoDetails />} />
+    </Routes>
     </div>
   );
 }

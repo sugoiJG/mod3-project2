@@ -23,7 +23,8 @@ export const TodoProvider = ({ children }) => {
     getItemsList();
   }, []);
 
-  const addItem = async () => {
+  const addItem = async (e) => {
+    e.preventDefault()
     try {
       const res = await axios.post("http://localhost:5500/api/item", {
         item: itemText,

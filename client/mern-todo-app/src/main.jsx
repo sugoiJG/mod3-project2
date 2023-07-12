@@ -1,10 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import { TodoProvider } from "./TodoContext/TodoContext";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+const rootElement = document.getElementById("root");
+console.log(BrowserRouter)
+createRoot(rootElement).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <TodoProvider>
+        <App />
+      </TodoProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);

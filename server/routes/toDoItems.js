@@ -17,8 +17,10 @@ router.post("/api/item", async (req, res) => {
 });
 
 router.get('/api/items', async (req, res) => {
+  console.log("hitting api/items");
   try{
     const allTodoItems = await todoItemsModel.find({});
+    console.log(allTodoItems);
     res.status(200).json(allTodoItems)
   }catch(err){
     res.json(err);
